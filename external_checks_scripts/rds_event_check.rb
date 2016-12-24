@@ -1,6 +1,7 @@
 #! /usr/bin/env ruby
 
 require 'aws-sdk-v1'
+require 'net/http'
 
 if ARGV.size < 3
   puts "Usage: #{$PROGRAM_NAME} [DATABASE_IDENTIFIER] [DIFFERENCE_TIME(sec)] \
@@ -12,7 +13,9 @@ end
 source_id = ARGV[0]
 diff_time = ARGV[1]
 event_cat = ARGV[2]
-region = 'ap-northeast-1'
+metadata_endpoint = 'http://169.254.169.254/latest/meta-data/'
+local_hostname = Net::HTTP.get(URI.parse(metadata_endpoint + '/local-hostname'))
+region = local_hostname.split('.')[1]
 
 rds = AWS::RDS::Client.new(region: region)
 
