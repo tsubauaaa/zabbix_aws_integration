@@ -2,25 +2,21 @@
 
 require 'aws-sdk-v1'
 
-if ARGV.size < 8
-  puts "Usage: #{$PROGRAM_NAME} [ACCESS_KEY] [SECRET_ACCESS_KEY] [REGION] [NAMESPACE] [METRIC_NAME] [DIMENTION_NAME] [DIMENTION_VALUE] [STATISTICS_TYPE](Average) [DIFFERENCE_TIME(sec)](600) [PERIOD(sec)](300)"
+if ARGV.size < 6
+  puts "Usage: #{$PROGRAM_NAME} [REGION] [NAMESPACE] [METRIC_NAME] [DIMENTION_NAME] [DIMENTION_VALUE] [STATISTICS_TYPE](Average) [DIFFERENCE_TIME(sec)](600) [PERIOD(sec)](300)"
   exit 1
 end
 
-access_key = ARGV[0]
-secret_key = ARGV[1]
-region = ARGV[2]
-namespace = ARGV[3]
-metric_name = ARGV[4]
-dime_name = ARGV[5]
-dime_value = ARGV[6]
-statistics_type = ARGV[7] || 'Average'
-diff_time = ARGV[8] || '600'
-period = ARGV[9] || '300'
+region = ARGV[0]
+namespace = ARGV[1]
+metric_name = ARGV[2]
+dime_name = ARGV[3]
+dime_value = ARGV[4]
+statistics_type = ARGV[5] || 'Average'
+diff_time = ARGV[6] || '600'
+period = ARGV[7] || '300'
 
 AWS.config(
-  access_key_id: access_key,
-  secret_access_key: secret_key,
   region: region
 )
 
