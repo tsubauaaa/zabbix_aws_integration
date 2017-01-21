@@ -1,0 +1,5 @@
+source 'rubygems'
+gem 'aws-sdk', '>=2.6.42'
+gem 'aws-sdk-core', '>=2.4.42'
+gem 'aws-sdk-resources', '>=2.4.42'
+gem 'aws-sdk-v1', '>=1.66.0'
