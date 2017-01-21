@@ -37,7 +37,7 @@ stats = metrics.statistics(
 
 last_stats = stats.sort_by { |stat| stat[:timestamp] }.last
 if last_stats.nil?
-  puts nil
+  puts 0
 else
   puts last_stats[statistics_type.downcase.to_sym]
 end
