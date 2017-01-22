@@ -25,6 +25,10 @@ When you monitor the EC 2 instance, it automatically registers the Instance ID i
 
 ![features](http://cdn-ak.f.st-hatena.com/images/fotolife/t/tsubauaaa/20170122/20170122234219.png)
 
+## Installation
+1. Place files under [external_checks_scripts](https://github.com/tsubauaaa/zabbix_aws_integration/tree/master/external_checks_scripts) in  the location for external scripts of your zabbix server.
+
+2. Import [template](https://github.com/tsubauaaa/zabbix_aws_integration/blob/master/templates/Template_AWS_Integration.xml) into your zabbix server.
 
 ## Contribution
 * fork it
