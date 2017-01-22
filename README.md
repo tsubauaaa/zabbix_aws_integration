@@ -30,6 +30,8 @@ When you monitor the EC 2 instance, it automatically registers the Instance ID i
 
 2. Import [template](https://github.com/tsubauaaa/zabbix_aws_integration/blob/master/templates/Template_AWS_Integration.xml) into your zabbix server.
 
+3. Enter the value in your environment at template user macros.
+
 ## Contribution
 * fork it
 * develop you want
