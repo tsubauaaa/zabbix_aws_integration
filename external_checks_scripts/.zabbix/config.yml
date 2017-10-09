@@ -1,0 +1,3 @@
+URL: http://YOUR_ZABBIX_SERVER/zabbix/api_jsonrpc.php
+USER: api_user
+PASSWORD: zabbix
