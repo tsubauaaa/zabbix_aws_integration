@@ -18,24 +18,21 @@ period = ARGV[7] || '300'
 
 cs = Aws::CloudWatch::Client.new(region: region)
 
-cw.put_metric_data({
+metrics = Aws::CloudWatch::Metric({
+  client: cs,
   namespace: namespace,
-  metric_data: [{
-    metric_name: metric_name,
-    dimensions: [
-      {
-        name: dime_name,
-	value: dime_value
-      }
-    ]
-  }]
+  name: metric_name
 })
 
 stats = metrics.get_statistics({
   start_time: Time.now - diff_time.to_i,
   end_time: Time.now,
   statistics: [statistics_type],
-  period: period.to_i
+  period: period.to_i,
+  dimensions: [{
+    name: dime_name,
+    value: dime_value 
+  }]
 })
 
 last_stats = stats.datapoints.sort_by { |stat| stat[:timestamp] }.last
