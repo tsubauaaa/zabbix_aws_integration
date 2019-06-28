@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
-require 'aws-sdk-core'
+require 'aws-sdk'
 require 'net/http'
 
 if ARGV.size < 3
